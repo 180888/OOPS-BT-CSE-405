@@ -1,0 +1,33 @@
+#include<iostream>
+using namespace std;
+class coordinate
+{
+	int a;
+	int b;
+	
+public :
+    void point(int x,int y)
+	{
+		a=x;
+		b=y;
+	}
+    coordinate operator +(coordinate c)
+	{
+		coordinate sum;
+		sum.a=a+c.a;
+		sum.b=b+c.b;
+		return sum;
+	 }
+	 void display()
+	 {
+	 	cout<<"sum: (x,y)=("<<a<<","<<b<<")"<<endl;	 
+	 } 
+};
+int main()
+{   
+    coordinate p1,p2;
+    p1.point  (20,30);
+    p2.point (30,40);
+	coordinate p3=p1+p2;
+	p3.display();	
+}
