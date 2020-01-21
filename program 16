@@ -1,0 +1,37 @@
+#include <iostream>
+
+using namespace std;
+class alphabet
+{
+    char a,b;
+   public:
+    void letter(char x,char y)
+    {
+        a=x;
+        b=y;
+    }
+    alphabet operator +()
+    {   alphabet object;
+        object.a=(int) a+1;
+        object.b=(int) b+1;
+        return(object);
+    }
+    void display()
+    {
+        cout<<"alphabet after incrementing is: "<<a<<endl;
+        cout<<"alphabet after incrementing is: "<<b;
+    }
+};
+int main()
+{
+alphabet obj1;
+char x,y;
+cout<<"enter a capital alphabet ";
+cin>>x;
+cout<<"enter a small alphabet ";
+cin>>y;
+obj1.letter(x,y);
+alphabet obj2=(+obj1);
+obj2.display();
+return 0;
+}
