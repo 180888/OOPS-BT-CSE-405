@@ -1,0 +1,42 @@
+#include<iostream>
+using namespace std;
+class A
+{
+	double num;
+	public:
+	A()
+	{
+		num=-1;
+	}
+	A(int n)
+	{
+		num=n;
+	}
+	A(double n)
+	{
+		num=n;
+	}
+	void display()
+	{
+		cout<<"value of variable num is: "<<num<<endl;
+	}
+	
+};
+int main()
+{
+	int n;
+	double x;
+cout<<"enter integer and double value";
+cin>>n>>x;
+A obj;
+	cout<<"calling display using default constructor"<<endl;
+	  obj.display();
+		cout<<"calling display using one constructor"<<endl;
+	    	A obj1(n);
+	   	      obj1.display();
+			    cout<<"using constructor overloading"<<endl;
+			      A obj2(x);
+		        	obj2.display();
+			
+	return 0;
+}
