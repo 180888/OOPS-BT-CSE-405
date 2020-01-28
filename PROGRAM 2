@@ -1,3 +1,4 @@
+//implementation of inline function
 #include<iostream>
 using namespace std;
 class Square
@@ -8,8 +9,7 @@ class Square
 	{
 	number=n;	
 	}
-	inline void square ();
-	
+	inline void square ();	
 };
 void inline Square:: square()
     {
