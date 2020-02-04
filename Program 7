@@ -12,13 +12,7 @@ class Time
     min=tm.tm_min;
     hour=tm.tm_hour;
    }
-   
-   void display()
-   {
-   	cout<<"hour: "<<this->hour<<" "<<endl<<"minute: "<<this->min<<endl<<"second: "<<this->sec<<endl;
-   }
-};
-friend Time sum(Time object1,Time object2)
+   friend Time sum(Time object1,Time object2)
    { 
         Time obj;
    	obj.hour=object1.hour+object2.hour;
@@ -26,12 +20,18 @@ friend Time sum(Time object1,Time object2)
    	obj.sec=object1.sec+object2.sec;
         return obj;
    }
+   void display()
+   {
+   	cout<<"hour: "<<this->hour<<" "<<endl<<"minute: "<<this->min<<endl<<"second: "<<this->sec<<endl;
+   }
+};
+
 int main()
 {    
 	Time t1;
 	cout<<"time when first object was created:"<<endl;
 	t1.display();
-	getch();
+       getch();
 	Time t2;
 	cout<<"time when second object was created:"<<endl;
 	t2.display();
