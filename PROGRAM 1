@@ -1,3 +1,8 @@
+/*
+read matrix from user 
+display it using function
+*/
+
 #include <iostream>
 using namespace std;
 class Matrix
@@ -10,12 +15,12 @@ public:
 	{   this->row=row;
 	    this->col=col;
 	    array= new int* [row];
-    for(int i=0;i<row;i++)
-        {
-        array[i]= new int [col];
-        for(int j=0;j<col;j++)
-        array[i][j]=7;
-        }		
+       for(int i=0;i<row;i++)
+          {
+            array[i]= new int [col];
+            for(int j=0;j<col;j++)
+            array[i][j]=7;
+           }		
 	}
     void set_matrix()
     {
