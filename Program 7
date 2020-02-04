@@ -1,0 +1,39 @@
+#include<iostream>
+#include<time.h>
+#include<conio.h>
+using namespace std;
+class Time
+{  time_t t=time(NULL);
+	struct tm tm=*localtime(&t);
+	int hour,min,sec;
+   public:
+   Time()
+   { sec=tm.tm_sec;
+    min=tm.tm_min;
+    hour=tm.tm_hour;
+   }
+   friend Time sum(Time object1,Time object2)
+   { Time obj;
+   	obj.hour=object1.hour+object2.hour;
+   	obj.min=object1.min+object2.min;
+   	obj.sec=object1.sec+object2.sec;
+    return obj;
+   }
+   void display()
+   {
+   	cout<<"hour: "<<this->hour<<" "<<endl<<"minute: "<<this->min<<endl<<"second: "<<this->sec<<endl;
+   }
+};
+int main()
+{    
+	Time t1;
+	cout<<"time when first object was created:"<<endl;
+	t1.display();
+	getch();
+	Time t2;
+	cout<<"time when second object was created:"<<endl;
+	t2.display();
+    Time obj1=sum(t1,t2);
+    cout<<"sum of time: "<<endl;
+	obj1.display();
+}
