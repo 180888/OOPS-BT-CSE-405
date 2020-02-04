@@ -1,47 +1,52 @@
 #include <iostream>
-
 using namespace std;
 class Matrix
 {
-    static int arr[3][3];
+    int** array;
+    int row;
+    int col;
 public:
-    void set_matrix(int a[3][3])
-    {
-        for(int i=0;i<3;i++)
+	Matrix(int row, int col )
+	{   this->row=row;
+	    this->col=col;
+	    array= new int* [row];
+    for(int i=0;i<row;i++)
         {
-            for(int j=0;j<3;j++)
-                cin>>arr[i][j];
+        array[i]= new int [col];
+        for(int j=0;j<col;j++)
+        array[i][j]=7;
+        }		
+	}
+    void set_matrix()
+    {
+        for(int i=0;i<row;i++)
+        {
+            for(int j=0;j<col;j++)
+                cin>>array[i][j];
         }
     }
-    int* get_matrix()
+    void display()
     {
-        return (&arr[0][0]);
-    }
-};
-class Display
-{
-    int a[3][3];
-public:
-    void display(int *b)
-    {
-        for(int i=0;i<3;i++)
+        for(int i=0;i<row;i++)
         {
-            for(int j=0;j<3;j++)
+            for(int j=0;j<col;j++)
             {
-                cout<<*(b[i][j])<<" ";
+                cout<<array[i][j]<<"	";
             } cout<<endl;
-    }
+        }
 }
 };
 
 int main()
-{
-    int *arr;
-  Matrix obj;
+{ int m,n;
+cout<<"enter number of rows and columns: ";
+cin>>m>>n;
+  Matrix obj (m,n);
+  cout<<"default matrix is: "<<endl;
+  obj.display();
+  cout<<"enter elements of matrix\n";
   obj.set_matrix();
-  arr=obj.get_matrix();
-  Display obj1;
-  obj1.display(&arr[0][0]);
+  cout<<"matrix you entered is: \n";
+  obj.display();
   return 0;
 }
-
