@@ -1,3 +1,7 @@
+/*
+implementation of friend function
+*/
+
 #include<iostream>
 #include<time.h>
 #include<conio.h>
@@ -12,7 +16,13 @@ class Time
     min=tm.tm_min;
     hour=tm.tm_hour;
    }
-   friend Time sum(Time object1,Time object2)
+  friend Time sum(Time,Time);
+   void display()
+   {
+   	cout<<"hour: "<<this->hour<<" "<<endl<<"minute: "<<this->min<<endl<<"second: "<<this->sec<<endl;
+   }
+};
+Time sum(Time object1,Time object2)
    { 
         Time obj;
    	obj.hour=object1.hour+object2.hour;
@@ -20,12 +30,6 @@ class Time
    	obj.sec=object1.sec+object2.sec;
         return obj;
    }
-   void display()
-   {
-   	cout<<"hour: "<<this->hour<<" "<<endl<<"minute: "<<this->min<<endl<<"second: "<<this->sec<<endl;
-   }
-};
-
 int main()
 {    
 	Time t1;
