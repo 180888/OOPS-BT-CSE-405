@@ -1,9 +1,11 @@
-/* implementation of:
+/* 
+implementation of:
 default constructor
 parameterized constructor
 parameterized constructor
 copy constructor
-constructor overloading*/
+constructor overloading
+*/
 
 #include<iostream>
 #include<string.h>
