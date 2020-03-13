@@ -1,0 +1,53 @@
+#include<iostream>
+#include<fstream>
+using namespace std;
+class Student
+{
+    private:
+        char name[30];
+        int roll_no;
+    public:
+        void get(void)
+        { cout<<"Enter name:"; cin.getline(name,30);
+          cout<<"Enter roll_no:"; cin>>roll_no;
+        }
+        void show(void)
+        {
+        cout<<"Name: "<<name<<endl<<"roll_no: "<<roll_no<<endl;
+        }
+ 
+      
+};
+int main()
+{
+    Student s;
+     
+    fstream file;
+ 
+    file.open("file2.txt",ios::out | ios::app);
+    if(!file)
+    {
+      cout<<"Error in creating file.."<<endl;
+      return 0;
+    }
+    cout<<"\nFile created successfully."<<endl;
+ 
+   
+    s.get();   
+    file.write((char*)&s,sizeof(s));   
+ 
+    
+    cout<<"\nFile saved successfully."<<endl;
+ 
+    ifstream file1;
+   
+    file1.open("file2.txt",ios::in);
+    if(!file1){
+        cout<<"Error in opening file..";
+        return 0;
+    }
+    
+    file1.read((char*)&s,sizeof(s));
+    s.show();
+    return 0;
+}
