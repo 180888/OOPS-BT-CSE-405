@@ -1,0 +1,44 @@
+/*
+program to check whether number 
+is even or odd
+*/
+
+
+#include <iostream>
+
+using namespace std;
+class Check
+{
+  int x;
+  public:
+  void get(int y)
+  {
+      x=y;
+  }
+  void display()
+  {
+      if(x%2==0 && x>0)
+      {
+          cout<<"even"<<endl;
+      }
+      else if(x%2!=0 && x>0)
+      {
+          cout<<"odd"<<endl;
+      }
+      else
+      {
+          cout<<"The number you entered is neither odd nor even.";
+      }
+  }
+  
+};
+
+int main()
+{
+    int y;
+    cin>>y;
+    Check obj;
+    obj.get(y);
+    obj.display();
+    return 0;
+}
