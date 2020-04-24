@@ -1,0 +1,62 @@
+// Program to show hybrid inheritance
+
+#include<iostream>
+#include<conio.h>
+using namespace std;
+class Student{ 
+	int id;
+    char name[20];
+	public: 
+	void get()
+	{
+		cout << "Enter stuid, name";
+		cin >> id;
+		cin>>name;
+	}
+};
+
+class Sessional_marks: public Student{
+	protected:
+	int m, n, o;
+	public:
+	void getmarks()
+	{
+		cout << "Enter 3 subject marks:";
+		cin >> m >> n >> o;
+	}
+};
+
+class Final_term_marks{
+	protected:
+	int a,b,c;
+	public:
+	void get_marks()
+	{
+		cout << "Enter end term marks marks: ";
+		cin >> a>>b>>c;
+	}
+};
+
+class result : public Sessional_marks, public Final_term_marks
+{
+	int tot;
+	float avg;
+	public :
+	void display()
+	{
+		tot=m+n+o+a+b+c;
+		avg=tot/3.0;
+		cout << "Total=" << tot << endl;
+		cout << "Average=" << avg << endl;
+	}
+};
+
+int main(){
+	result r;
+	r.get();
+	r.getmarks();
+	r.get_marks();
+	r.display();
+	getch();
+	return 0;
+};
