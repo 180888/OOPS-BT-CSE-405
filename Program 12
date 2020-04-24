@@ -1,0 +1,75 @@
+#include <iostream>
+#include <conio.h>
+using namespace std;
+
+class College
+{
+    string name_of_college;
+    int no_of_departments;
+    public:
+        void getdata()
+        {
+            cout<<"name_of_college: ";
+            cin>>name_of_college;
+            cout<<"no_of_departments:";
+            cin>>no_of_departments;
+        }
+        void display()
+        {
+            cout<<"name_of_college: "<<name_of_college<<endl;
+            cout<<"no_of_departments: "<<no_of_departments<<endl;
+        }
+};
+
+class Department: public College
+{
+    char dep_name[100];
+    public:
+        void getdata()
+        {
+            College::getdata();
+            cout<<"department name: ";
+            cin>>dep_name;
+        }
+        void display()
+        {
+            College::display();
+            cout<<"dep_name: "<<dep_name<<endl;
+        }
+};
+
+class Student: public Department
+{
+    int roll_no;
+    string name;
+    string course;
+    public:
+        void getdata()
+        {
+            Department::getdata();
+            cout<<"roll_no:";
+            cin>>roll_no;
+            cout<<"name of student: ";
+            cin>>name;
+            cout<<"course enrolled: ";
+            cin>>course;
+        }
+        void display()
+        {
+            Department::display();
+            cout<<"roll_no "<<roll_no<<endl;
+            cout<<"name of student: "<<name<<endl;
+            cout<<"course enrolled: "<<course;
+        }
+};
+
+int main()
+{
+    Student p;
+    cout<<"Enter data:"<<endl;
+    p.getdata();
+    cout<<endl<<"Displaying data"<<endl;
+    p.display();
+    getch();
+    return 0;
+}
