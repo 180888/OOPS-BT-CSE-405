@@ -1,0 +1,55 @@
+// To show concept of containership.
+
+#include <iostream> 
+using namespace std; 
+
+class Integer_number { 
+private: 
+	int num; 
+
+public: 
+	void get_values(int x) 
+	{   num=x;
+	} 
+	void int_display()
+	{
+	    cout << "Integer Class\n"; 
+		cout << "num = " << num << endl; 
+	}
+}; 
+
+class Double_number { 
+    double num1;
+  public: 
+     void get(double y)
+        { 
+            num1=y;
+        } 
+        void display()
+        {
+            cout << "Double Class\n"; 
+          cout << "num = " << num1 << endl; 
+        }
+}; 
+
+//container class
+class Number{ 
+    
+   Integer_number obj;
+   Double_number obj1;
+    
+    public:
+     void func()
+     {
+          obj.get_values(10);
+          obj1.get(10.12);
+          obj.int_display();
+          obj1.display();
+     }
+}; 
+int main() 
+{ 
+    Number object;
+    object.func();
+    return 0;
+} 
