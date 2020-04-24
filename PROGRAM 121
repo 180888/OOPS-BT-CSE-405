@@ -1,0 +1,70 @@
+// PROGRAM TO SHOW MULTIPLE INHERITANCE
+
+#include<iostream>
+using namespace std;
+ 
+class Student
+{
+private:
+    string s_name;
+    int roll_no;
+ 
+public:
+   void getdetails()
+   {
+       cout<<"enter name and roll_no of student:";
+       cin>>s_name>>roll_no;
+   }
+   void display()
+   {
+       cout<<"name: "<<s_name<<endl<<"roll_no"<<roll_no<<endl;
+   }
+};
+ 
+class Teacher
+{
+private:
+    string t_name;
+    double t_salary;
+ 
+public:
+    void get_details() 
+    { 
+       cout<<"enter teacher name and salary: ";
+       cin>>t_name;
+       cin>>t_salary;
+    }
+    
+    void display()
+    {
+        cout<<"tecaher name: "<<t_name<<endl;
+        cout<<"salary: "<<t_salary<<endl;
+    }
+};
+ 
+class Department: public Teacher, public Student
+{
+private:
+     string dep_name;
+     int dep_id;
+     
+public:
+void get()
+{   cout<<"enter department id and name: ";
+    cin>>dep_id>>dep_name;
+}
+void display()
+{   Teacher::display();
+    Student::display();
+    cout<<"Department name: "<<dep_name<<endl<<"Department id"<<dep_id;
+}
+};
+int main()
+{
+    Department obj;
+    obj.getdetails();
+    obj.get_details();
+    obj.get();
+    cout<<"details you entered: "<<endl;
+    obj.display();
+}
